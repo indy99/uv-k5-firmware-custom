@@ -203,7 +203,8 @@ static void processFKeyFunction(const KEY_Code_t Key, const bool beep)
 				gRequestSaveVFO   = true;
 				gVfoConfigureMode = VFO_CONFIGURE_RELOAD;
 #elif defined(ENABLE_SPECTRUM)
-				APP_RunSpectrum();
+				if (!gF_LOCK_CUSTOM1)
+					APP_RunSpectrum();					
 				gRequestDisplayScreen = DISPLAY_MAIN;
 #endif
 			}
@@ -350,6 +351,16 @@ static void MAIN_Key_DIGITS(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
 			else if (Frequency > frequencyBandTable[BAND_N_ELEM - 1].upper) {
 				Frequency = frequencyBandTable[BAND_N_ELEM - 1].upper;
 			}
+
+			////////////			
+			if (gF_LOCK_CUSTOM1) {
+				if 	( 	
+					(Frequency >= 14400000 && Frequency < 14600000) ||
+					(Frequency >= 43000000 && Frequency < 44000000)
+					)
+				{} else return;
+			}
+			////////////
 
 			const FREQUENCY_Band_t band = FREQUENCY_GetBand(Frequency);
 

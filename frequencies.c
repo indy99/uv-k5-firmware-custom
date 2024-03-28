@@ -162,6 +162,15 @@ uint32_t FREQUENCY_RoundToStep(uint32_t freq, uint16_t step)
 int32_t TX_freq_check(const uint32_t Frequency)
 {	// return '0' if TX frequency is allowed
 	// otherwise return '-1'
+	////////////
+	if (gF_LOCK_CUSTOM1) {
+		if 	( 	
+			(Frequency >= 14400000 && Frequency < 14600000) ||
+			(Frequency >= 43000000 && Frequency < 44000000)
+			)
+			return 0; else return -1;
+	}
+	////////////
 
 	if (Frequency < frequencyBandTable[0].lower || Frequency > frequencyBandTable[BAND_N_ELEM - 1].upper)
 		return 1;  // not allowed outside this range
@@ -239,6 +248,15 @@ int32_t TX_freq_check(const uint32_t Frequency)
 int32_t RX_freq_check(const uint32_t Frequency)
 {	// return '0' if RX frequency is allowed
 	// otherwise return '-1'
+	////////////
+	if (gF_LOCK_CUSTOM1) {
+		if 	( 	
+			(Frequency >= 14400000 && Frequency < 14600000) ||
+			(Frequency >= 43000000 && Frequency < 44000000)
+			)
+			return 0; else return -1;
+	}
+	////////////
 
 	if (Frequency < frequencyBandTable[0].lower || Frequency > frequencyBandTable[BAND_N_ELEM - 1].upper)
 		return -1;

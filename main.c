@@ -118,6 +118,8 @@ void Main(void)
 	{
 		gF_LOCK = true;            // flag to say include the hidden menu items
 	}
+	else 
+	if (BootMode == BOOT_MODE_CUSTOM1) gF_LOCK_CUSTOM1 = false;
 
 	// count the number of menu items
 	gMenuListCount = 0;

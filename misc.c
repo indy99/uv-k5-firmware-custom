@@ -224,6 +224,8 @@ bool              gUpdateDisplay;
 
 bool              gF_LOCK = false;
 
+bool              gF_LOCK_CUSTOM1 = true;
+
 uint8_t           gShowChPrefix;
 
 volatile bool     gNextTimeslice;
