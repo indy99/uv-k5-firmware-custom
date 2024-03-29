@@ -354,11 +354,7 @@ static void MAIN_Key_DIGITS(KEY_Code_t Key, bool bKeyPressed, bool bKeyHeld)
 
 			////////////			
 			if (gF_LOCK_CUSTOM1) {
-				if 	( 	
-					(Frequency >= 14400000 && Frequency < 14600000) ||
-					(Frequency >= 43000000 && Frequency < 44000000)
-					)
-				{} else return;
+				if (!IS_FREQ_CUSTOM1(Frequency)) return;
 			}
 			////////////
 

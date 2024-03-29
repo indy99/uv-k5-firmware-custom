@@ -382,11 +382,7 @@ void RADIO_ConfigureChannel(const unsigned int VFO, const unsigned int configure
 	////////////
 	if (gF_LOCK_CUSTOM1) {
 		FREQ_Config_t *pConfig = pVfo->pRX;
-		if 	( 	
-			(pConfig->Frequency >= 14400000 && pConfig->Frequency < 14600000) ||
-			(pConfig->Frequency >= 43000000 && pConfig->Frequency < 44000000)
-			)
-		{} else pConfig->Frequency = 43916250;
+		if (!IS_FREQ_CUSTOM1(pConfig->Frequency)) pConfig->Frequency = DEFAULT_FREQ_CUSTOM1;
 	}
 	////////////
 

@@ -36,10 +36,14 @@
 	#define SWAP(a, b) ({ __typeof__ (a) _c = (a);  a = b; b = _c; })
 #endif
 
-#define IS_MR_CHANNEL(x)       ((x) <= MR_CHANNEL_LAST)
-#define IS_FREQ_CHANNEL(x)     ((x) >= FREQ_CHANNEL_FIRST && (x) <= FREQ_CHANNEL_LAST)
-#define IS_VALID_CHANNEL(x)    ((x) < LAST_CHANNEL)
-#define IS_NOAA_CHANNEL(x)     ((x) >= NOAA_CHANNEL_FIRST && (x) <= NOAA_CHANNEL_LAST)
+#define IS_MR_CHANNEL(x)       	((x) <= MR_CHANNEL_LAST)
+#define IS_FREQ_CHANNEL(x)     	((x) >= FREQ_CHANNEL_FIRST && (x) <= FREQ_CHANNEL_LAST)
+#define IS_VALID_CHANNEL(x)    	((x) < LAST_CHANNEL)
+#define IS_NOAA_CHANNEL(x)     	((x) >= NOAA_CHANNEL_FIRST && (x) <= NOAA_CHANNEL_LAST)
+
+#define IS_FREQ_CUSTOM1(x)		(((x) >= 14400000 && (x) < 14600000) || ((x) >= 43000000 && (x) < 44000000))
+#define KEY_BOOT_CUSTOM1 		KEY_3
+#define DEFAULT_FREQ_CUSTOM1 	43916250
 
 enum {
 	MR_CHANNEL_FIRST   = 0,

@@ -164,11 +164,7 @@ int32_t TX_freq_check(const uint32_t Frequency)
 	// otherwise return '-1'
 	////////////
 	if (gF_LOCK_CUSTOM1) {
-		if 	( 	
-			(Frequency >= 14400000 && Frequency < 14600000) ||
-			(Frequency >= 43000000 && Frequency < 44000000)
-			)
-			return 0; else return -1;
+		if (IS_FREQ_CUSTOM1(Frequency)) return 0; else return -1;
 	}
 	////////////
 
@@ -250,11 +246,7 @@ int32_t RX_freq_check(const uint32_t Frequency)
 	// otherwise return '-1'
 	////////////
 	if (gF_LOCK_CUSTOM1) {
-		if 	( 	
-			(Frequency >= 14400000 && Frequency < 14600000) ||
-			(Frequency >= 43000000 && Frequency < 44000000)
-			)
-			return 0; else return -1;
+		if (IS_FREQ_CUSTOM1(Frequency)) return 0; else return -1;
 	}
 	////////////
 

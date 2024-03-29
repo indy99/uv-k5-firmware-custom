@@ -54,7 +54,7 @@ BOOT_Mode_t BOOT_GetMode(void)
 		if (Keys[0] == KEY_SIDE1)
 			return BOOT_MODE_F_LOCK;
 
-		if (Keys[0] == KEY_3)
+		if (Keys[0] == KEY_BOOT_CUSTOM1)
 			return BOOT_MODE_CUSTOM1;
 
 		#ifdef ENABLE_AIRCOPY
